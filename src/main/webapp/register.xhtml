@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+</h:head>
+<h:body>
+<h1>register new user</h1>
+<h:form>
+<label>username:</label>
+<h:inputText id="username" value="#{u.username}" required="true" validatorMessage="this fiels is required">
+</h:inputText><h:message for="username"></h:message>
+<br/>
+<label>password:</label>
+<h:inputSecret id="password" value="#{u.password}"/><br/>
+<label>courses:</label>
+<h:selectManyCheckbox value="#{u.coursesName}">
+<f:selectItem itemValue="AAAA" itemLabel="course AA"/>
+<f:selectItem itemValue="BBB" itemLabel="course BB"/>
+<f:selectItem itemValue="CCC" itemLabel="course CC"/>
+</h:selectManyCheckbox><br/>
+<span>user address:</span><br/>
+<label>street:</label>
+<h:selectOneMenu value="#{u.address.via}">
+<f:selectItem itemValue="" itemLabel="select street"/>
+<f:selectItem itemValue="roma" itemLabel="via roma"/>
+<f:selectItem itemValue="nizza" itemLabel="via nizza"/>
+<f:selectItem itemValue="po" itemLabel="via po"/>
+</h:selectOneMenu><br/>
+<label>num:</label>
+<h:inputText id="num" value="#{u.address.num}" label="num" >
+
+
+</h:inputText>
+<h:message for="num"></h:message>
+<br/>
+<h:commandButton value="register" action="#{userController.addUser(u)}"/>
+</h:form>
+</h:body>
+
+</html>
